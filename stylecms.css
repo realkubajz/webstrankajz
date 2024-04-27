@@ -1,0 +1,127 @@
+/* stylecms.css */
+
+/* CSS for the first container */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container form {
+    display: grid;
+    gap: 10px;
+}
+
+.container form label {
+    font-weight: bold;
+}
+
+.container form input[type="text"],
+.container form input[type="textarea"],
+.container form input[type="number"],
+.container form input[type="file"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.container form textarea {
+    resize: vertical;
+}
+
+.container form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.container form button {
+    width: calc(33.33% - 10px);
+}
+
+/* CSS for the edit-container */
+.edit-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.edit-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.edit-container th,
+.edit-container td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.edit-container th {
+    background-color: #f2f2f2;
+}
+
+.edit-container img {
+    max-width: 100px;
+    height: auto;
+}
+
+.edit-container form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.edit-container form input[type="text"],
+.edit-container form input[type="number"],
+.edit-container form input[type="file"] {
+    flex: 1;
+}
+
+.edit-container form input[type="submit"],
+.edit-container form button[type="submit"] {
+    flex-basis: calc(50% - 5px);
+}
+
+.edit-container form button[type="submit"],
+.edit-container form button[type="button"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-container form button[type="submit"]:hover,
+.edit-container form button[type="button"]:hover {
+    opacity: 0.8;
+}
+
+.edit-container form td:first-child input[type="text"],
+.edit-container form td:first-child input[type="number"],
+.edit-container form td:first-child input[type="file"] {
+    margin-top: 0;
+}
+
+.edit-container form td:nth-child(2) input[type="submit"] {
+    margin-top: 0;
+}
+
+.edit-container form td:nth-child(3) button[type="submit"] {
+    margin-top: 0;
+}
+
+.edit-container form td:nth-child(3) input[type="file"] {
+    margin-top: 0;
+}
