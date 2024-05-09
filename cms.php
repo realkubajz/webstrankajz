@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $productId = $_POST['edit'];
         $name = $_POST['name_' . $productId];
         $description = $_POST['description_' . $productId];
-<<<<<<< HEAD
         $price = $_POST['price_' . $productId];
         $category = $_POST['category_' . $productId]; // Added category handling
         
@@ -34,29 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':image', $image, PDO::PARAM_LOB);
         } else {
             $sql = "UPDATE products SET name = :name, description = :description, price = :price, category_id = :category WHERE id = :id";
-=======
-        $price = $_POST['price_' . $productId]; // Added price handling
-        
-        if ($_FILES['image_' . $productId]['size'] > 0) {
-            $image = file_get_contents($_FILES['image_' . $productId]['tmp_name']);
-            $sql = "UPDATE products SET name = :name, description = :description, image = :image, price = :price WHERE id = :id"; // Updated query
-            $stmt = $connection->prepare($sql);
-            $stmt->bindParam(':image', $image, PDO::PARAM_LOB);
-        } else {
-            $sql = "UPDATE products SET name = :name, description = :description, price = :price WHERE id = :id"; // Updated query
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
             $stmt = $connection->prepare($sql);
         }
         
         $stmt->bindParam(':id', $productId);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':description', $description);
-<<<<<<< HEAD
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':category', $category); // Bind category parameter
-=======
-        $stmt->bindParam(':price', $price); // Bind price parameter
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
         $stmt->execute();
     } elseif (isset($_POST['delete'])) {
         $productId = $_POST['delete'];
@@ -67,28 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $name = $_POST['name'];
         $description = $_POST['description'];
-<<<<<<< HEAD
         $price = $_POST['price'];
         $category = $_POST['category']; // Added category handling
         $image = file_get_contents($_FILES['image']['tmp_name']);
 
         $sql = "INSERT INTO products (name, description, image, price, category_id) VALUES (:name, :description, :image, :price, :category)";
-=======
-        $price = $_POST['price']; // Added price handling
-        $image = file_get_contents($_FILES['image']['tmp_name']);
-
-        $sql = "INSERT INTO products (name, description, image, price) VALUES (:name, :description, :image, :price)"; // Updated query
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':image', $image, PDO::PARAM_LOB);
-<<<<<<< HEAD
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':category', $category); // Bind category parameter
-=======
-        $stmt->bindParam(':price', $price); // Bind price parameter
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
         $stmt->execute();
     }
 
@@ -97,11 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Fetch products from the database
-<<<<<<< HEAD
 $sql = "SELECT id, name, description, image, price, category_id FROM products ORDER BY id DESC";
-=======
-$sql = "SELECT id, name, description, image, price FROM products ORDER BY id DESC"; // Order by ID in descending order
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
 $stmt = $connection->query($sql);
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -123,25 +92,18 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <label for="description">Product Description:</label>
         <input type="text" id="description" name="description" required>
 
-<<<<<<< HEAD
         <label for="price">Product Price:</label>
-=======
-        <label for="price">Product Price:</label> <!-- Added price field -->
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
         <input type="number" id="price" name="price" required step="0.01">
 
         <label for="image">Product Image:</label>
         <input type="file" id="image" name="image" required>
 
-<<<<<<< HEAD
         <label for="category">Product Category:</label>
         <select name="category" id="category" required>
             <option value="1">Android</option>
             <option value="2">iPhone</option>
         </select>
 
-=======
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
         <input type="submit" value="Submit">
     </form>
 </div>
@@ -157,10 +119,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Description</th>
                     <th>Image</th>
                     <th>Price</th>
-<<<<<<< HEAD
                     <th>Category</th>
-=======
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
                     <th>Action</th>
                 </tr>
             </thead>
@@ -172,7 +131,6 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><input type="text" name="name_<?php echo $product['id']; ?>" value="<?php echo $product['name']; ?>"></td>
                             <td><input type="text" name="description_<?php echo $product['id']; ?>" value="<?php echo $product['description']; ?>"></td>
                             <td><img src="<?php echo blobToBase64($product['image']); ?>" alt="<?php echo $product['name']; ?>" style="width: 100px;"></td>
-<<<<<<< HEAD
                             <td><input type="number" name="price_<?php echo $product['id']; ?>" value="<?php echo $product['price']; ?>" step="0.01"></td>
                             <td>
                                 <select name="category_<?php echo $product['id']; ?>" required>
@@ -181,11 +139,6 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </select>
                             </td>
                             <td>
-=======
-                            <td><input type="number" name="price_<?php echo $product['id']; ?>" value="<?php echo $product['price']; ?>" step="0.01"></td> <!-- Added price field -->
-                            <td>
-                                <input type="file" name="image_<?php echo $product['id']; ?>">
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15
                                 <input type="hidden" name="edit" value="<?php echo $product['id']; ?>">
                                 <input type="submit" value="Edit">
                             </td>
@@ -205,7 +158,3 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </body>
 </html>
-<<<<<<< HEAD
-=======
-
->>>>>>> ba5f7c5ea2f9a0b4e47538af1c6c560c2ef8ab15

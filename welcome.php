@@ -16,7 +16,10 @@ function blobToBase64($blobData) {
 // Check if random products are already stored in session
 if (!isset($_SESSION['random_products']) || time() > $_SESSION['random_products_expires']) {
     // Fetch random products from the database
-    $randomProducts = $connection->query("SELECT name, description, image, price FROM products ORDER BY RAND() LIMIT 10")->fetchAll(PDO::FETCH_ASSOC);
+    $randomProducts = $connection->query("SELECT p.name, p.description, p.image, p.price, c.name as category_name 
+                                          FROM products p 
+                                          JOIN categories c ON p.category_id = c.id 
+                                          ORDER BY RAND() LIMIT 10")->fetchAll(PDO::FETCH_ASSOC);
     // Store random products in session
     $_SESSION['random_products'] = $randomProducts;
     // Set expiration time for session data (1 minute from now)
@@ -25,6 +28,12 @@ if (!isset($_SESSION['random_products']) || time() > $_SESSION['random_products_
     // Retrieve random products from session
     $randomProducts = $_SESSION['random_products'];
 }
+// Fetch random products from the database
+$randomProducts = $connection->query("SELECT p.name, p.description, p.image, p.price, c.name as category_name 
+                                      FROM products p 
+                                      JOIN categories c ON p.category_id = c.id 
+                                      ORDER BY RAND() LIMIT 10")->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +57,7 @@ if (!isset($_SESSION['random_products']) || time() > $_SESSION['random_products_
                     <h3><?php echo $product['name']; ?></h3>
                     <p><?php echo $product['description']; ?></p>
                     <p class="product-price">€<?php echo $product['price']; ?></p>
+                    <p class="product-category">Category: <?php echo $product['category_name']; ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
