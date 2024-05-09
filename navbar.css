@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+}
+
+.navbar {
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.welcome {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2em;
+}

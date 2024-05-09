@@ -28,12 +28,6 @@ if (!isset($_SESSION['random_products']) || time() > $_SESSION['random_products_
     // Retrieve random products from session
     $randomProducts = $_SESSION['random_products'];
 }
-// Fetch random products from the database
-$randomProducts = $connection->query("SELECT p.name, p.description, p.image, p.price, c.name as category_name 
-                                      FROM products p 
-                                      JOIN categories c ON p.category_id = c.id 
-                                      ORDER BY RAND() LIMIT 10")->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>

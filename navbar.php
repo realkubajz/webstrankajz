@@ -1,38 +1,23 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Start the session if it's not already started.
+}
+
 $meno = isset($_SESSION['meno']) ? $_SESSION['meno'] : '';
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+
 ?>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    margin: 0;
-}
 
-.navbar {
-    background: #333;
-    color: #fff;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+<link rel="stylesheet" href="navbar.css">
 
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.welcome {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 2em;
-}
-</style>
-
-<div class="navbar">
+<header class="navbar">
     <div>Welcome, <?php echo $meno; ?>!</div>
     <a href="welcome.php">Home</a>
     <a href="shop.php">Shop</a>
+    <a href="stats.php">Stats</a>
     <a href="profile.php">Profile</a>
+    <?php if ($role === 'admin'): ?>
+        <a href="cms.php">CMS</a>
+    <?php endif; ?>
     <div><a href="logout.php">Logout</a></div>
-</div>
+    </header>
