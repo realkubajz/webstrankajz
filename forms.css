@@ -1,0 +1,101 @@
+.category-form {
+    margin-left: 35px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.category-form label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.category-form select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.category-form input[type="submit"] {
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.category-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+.sort-form {
+    margin-left: 35px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.sort-form label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.sort-form select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.sort-form input[type="submit"] {
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sort-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.login-form {
+    margin-top: 20px;
+    width: 200px; /* Adjusted width */
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
