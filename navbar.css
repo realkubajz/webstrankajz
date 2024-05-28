@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     margin: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .navbar {
@@ -11,14 +12,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 0; /* Remove margin bottom */
+    width: 100%; /* Make sure the navbar spans the full width */
 }
 
 .navbar a {
     color: #fff;
     text-decoration: none;
 }
-
 .welcome {
     text-align: center;
     margin-top: 50px;
